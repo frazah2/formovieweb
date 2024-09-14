@@ -1,13 +1,15 @@
 .detailSide{
     width: 100%;
     min-height: calc(100% - 470px);
-    /* background: lightpink; */
+    /* background: rgba(151, 145, 146, 0.315); */
+    text-shadow: 2px 2px 4px #000000ad;
     float: left;
     color: rgb(255, 255, 255);
     padding: 40px 60px;
     padding-top: 50px;
     font-weight: 700;
-    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    padding-right: 600px;
+    /* -webkit-text-stroke: 1px rgb(255, 255, 255); */
 }
 
 .detailSide p {

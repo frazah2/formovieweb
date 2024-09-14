@@ -10,7 +10,7 @@ function App() {
 
   const [currentTVShow, setCurrentTVShow] = useState({})
 
-  // console.log(`${BASE_URL}${currentTVShow.backdrop_path}`)
+  console.log(`${BASE_URL}${currentTVShow.backdrop_path}`)
 
   async function fetchData(){
     try{
@@ -40,7 +40,7 @@ function App() {
           <div className="row g-0">
             <div className="col-xs-12 col-sm-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2 ">
               <div className="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/The_Garfield_Movie_logo.png" alt="logo" />
+                <p>SUPERSHOW</p>
               </div>
 
             </div>

@@ -8,7 +8,7 @@ const MovieShowList = () => {
             <p>You'll probably like :</p>
 
             <div className='Items'>
-                <MovieShowItem />
+                <MovieShowItem style={{backgroundImage: `url('https://image.tmdb.org/t/p/original/dfX2UaHVE5c7kLBFbgmEZJuy4Ev.jpg`}}/>
                 <MovieShowItem />
                 <MovieShowItem />
                 <MovieShowItem />

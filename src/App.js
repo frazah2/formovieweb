@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-import {BASE_URL,BACKDROP_BASE_URL} from './config';
+import {BACKDROP_BASE_URL} from './config';
 import {MoviShowAPI} from '../src/seris/movi-show.js'
 import MovieShowList from './component/moviList/MoviList.jsx';
 import MovieDetail from './component/moviDetail/MoviDetail';
@@ -9,8 +9,9 @@ import MovieDetail from './component/moviDetail/MoviDetail';
 function App() {
 
   const [currentTVShow, setCurrentTVShow] = useState({})
+  const [tVRecommendations, setTVRecommendations] = useState([])
 
-  console.log(`${BASE_URL}${currentTVShow.backdrop_path}`)
+  // console.log(`${BASE_URL}${currentTVShow.backdrop_path}`)
 
   async function fetchData(){
     try{
@@ -29,9 +30,22 @@ function App() {
   },[])
 
 
+  async function fetchRecommendations(id){
+    try{
+      const response = await MoviShowAPI.fetchRcomendations(id)
+      setTVRecommendations(response.data.results)
+    }catch(error){
+      console.log(error.message)
+    }
+  }
 
-
-
+  useEffect(()=>{
+    fetchRecommendations(currentTVShow.id)
+  },[currentTVShow.id])
+  
+  function update_current_show(idSHow){
+    setCurrentTVShow(idSHow)
+  }
 
   return (
     <div className="main" style={{backgroundImage: `url('${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}')`}}>
@@ -58,7 +72,7 @@ function App() {
 
       <MovieDetail tvShow={currentTVShow} />
 
-      <MovieShowList/> 
+      <MovieShowList tVRecommendations={tVRecommendations} onClickItem={update_current_show}/> 
 
 
     </div>

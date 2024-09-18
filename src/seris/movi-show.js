@@ -5,7 +5,12 @@ export class MoviShowAPI{
 
     static async fetchPopular(){ 
         const response = await axios.get(`${BASE_URL}tv/popular${API_KEY_PARAM}`);
-        return response.data.results[3]
-        console.log(response.data.results[0])
+        return response.data.results[1]
+    }
+    static async fetchRcomendations(id){
+        const response = await axios.get(`${BASE_URL}tv/${id}/recommendations${API_KEY_PARAM}`);
+        // console.log(response);
+        return response
+        
     }
 }
